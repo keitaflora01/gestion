@@ -1,0 +1,192 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Budget Personnel</title>
+    <link rel="stylesheet" href="{% static 'css/tableaubord.css' %}">
+    <link rel="stylesheet" href="{% static 'css/depensetableau.css' %}">
+    <link rel="stylesheet" href="{% static 'css/revenue.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categorieform.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        {% include "./includes/sidebar.html" %}
+        <!-- Main Content -->
+        <div class="main-content">
+        
+            {% include "./includes/navbar.html" %}
+
+            {% comment %} -------------------------------------------------------- {% endcomment %}
+
+            {% block content %}
+            <!-- Stats Row -->
+            <div class="dashboard-grid">
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">1 250 €</div>
+                        <div class="stat-label">Dépenses du mois</div>
+                    </div>
+                </div>
+                
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">2 800 €</div>
+                        <div class="stat-label">Revenus du mois</div>
+                    </div>
+                </div>
+                
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">1 550 €</div>
+                        <div class="stat-label">Économies du mois</div>
+                    </div>
+                </div>
+                
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">12 480 €</div>
+                        <div class="stat-label">Épargne totale</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chart and AI Chat Row -->
+            <div class="dashboard-grid">
+                <div class="card card-md">
+                    <div class="card-header">
+                        <h2 class="card-title">Évolution Dépenses/Revenus</h2>
+                        <div class="date-filter">
+                            <label>Période:</label>
+                            <select id="chartPeriod" class="form-control">
+                                <option value="month">Ce mois</option>
+                                <option value="quarter">Ce trimestre</option>
+                                <option value="year">Cette année</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card card-md">
+                    <div class="card-header">
+                        <h2 class="card-title">Assistant IA</h2>
+                    </div>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message ai-message">
+                                Bonjour ! Je suis votre assistant IA pour la gestion de budget. Comment puis-je vous aider aujourd'hui ?
+                            </div>
+                            <div class="message user-message">
+                                Peux-tu me dire combien j'ai dépensé en alimentation ce mois-ci ?
+                            </div>
+                            <div class="message ai-message">
+                                Vous avez dépensé 320€ en alimentation ce mois-ci, ce qui représente 25.6% de vos dépenses totales.
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Posez une question..." id="chatInput">
+                            <button class="btn btn-primary" id="sendMessageBtn">Envoyer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expense Table and Total Calculator -->
+            <div class="dashboard-grid">
+                <div class="card card-lg">
+                    <div class="card-header">
+                        <h2 class="card-title">Dépenses récentes</h2>
+                        <div class="date-filter">
+                            <label>Du:</label>
+                            <input type="date" id="startDate" class="form-control">
+                            <label>Au:</label>
+                            <input type="date" id="endDate" class="form-control">
+                            <button class="btn btn-primary" id="calculateTotal">Calculer Total</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Catégorie</th>
+                                    <th>Description</th>
+                                    <th>Montant</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expenseTable">
+                                <tr>
+                                    <td>05/05/2025</td>
+                                    <td>Alimentation</td>
+                                    <td>Courses hebdomadaires</td>
+                                    <td>85.50 €</td>
+                                    <td class="action-buttons">
+                                        <button class="action-btn edit"><i>✏️</i></button>
+                                        <button class="action-btn delete"><i>🗑️</i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>03/05/2025</td>
+                                    <td>Transport</td>
+                                    <td>Essence</td>
+                                    <td>65.20 €</td>
+                                    <td class="action-buttons">
+                                        <button class="action-btn edit"><i>✏️</i></button>
+                                        <button class="action-btn delete"><i>🗑️</i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>01/05/2025</td>
+                                    <td>Loisirs</td>
+                                    <td>Cinéma</td>
+                                    <td>28.00 €</td>
+                                    <td class="action-buttons">
+                                        <button class="action-btn edit"><i>✏️</i></button>
+                                        <button class="action-btn delete"><i>🗑️</i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>30/04/2025</td>
+                                    <td>Factures</td>
+                                    <td>Électricité</td>
+                                    <td>94.35 €</td>
+                                    <td class="action-buttons">
+                                        <button class="action-btn edit"><i>✏️</i></button>
+                                        <button class="action-btn delete"><i>🗑️</i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>28/04/2025</td>
+                                    <td>Shopping</td>
+                                    <td>Vêtements</td>
+                                    <td>120.75 €</td>
+                                    <td class="action-buttons">
+                                        <button class="action-btn edit"><i>✏️</i></button>
+                                        <button class="action-btn delete"><i>🗑️</i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            {% endblock content %}
+
+
+            {% comment %} ------------------------------------------------------- {% endcomment %}
+            
+        </div>
+    </div>
+    
+</div>
+</body>
+</html> 
+    

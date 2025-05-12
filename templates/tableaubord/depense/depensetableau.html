@@ -1,0 +1,36 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+
+<body>
+
+  <h2>Tableau des Depenses</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Utilisateur</th>
+        <th>Catégorie</th>
+        <th>Montant</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Jean Dupont</td>
+        <td>Alimentation</td>
+        <td>45.00€</td>
+        <td>2025-05-10</td>
+        <td>Achat supermarché</td>
+        <td class="action-icons">
+          <i class="fas fa-pen" title="Modifier"></i>
+          <i class="fas fa-trash" title="Supprimer"></i>
+          <i class="fas fa-eye" title="Voir"></i>
+        </td>
+      </tr>
+      <!-- Tu peux ajouter d'autres lignes ici -->
+    </tbody>
+  </table>
+{% endblock content %}

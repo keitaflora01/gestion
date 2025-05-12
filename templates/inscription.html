@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Pro - Formulaire</title>
+    <link rel="stylesheet" href="{% static 'css/inscription.css'%}">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Financial Pro</h1>
+        </div>
+        
+        <div class="form-container">
+            <h1 class="section-title">Informations Personnelles</h1>
+            
+            <form method="POST">
+                {% csrf_token %} 
+                <div class="form-group">
+                    <label for="nomComplet">Nom complet</label>
+                    <input type="text" id="nomComplet" name="nomComplet" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">nom utilisateur</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" required>
+                </div>
+                
+                <h1 class="section-title">Informations Financières</h1>
+                
+                <div class="form-group">
+                    <label for="revenuAnnuel">Revenu Annuel </label>
+                    <input type="number" id="revenuAnnuel" name="revenuAnnuel" required>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="statutProfessionnel">Statut Professionnel</label>
+                            <select id="statutProfessionnel" name="statutProfessionnel" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="salarie">Salarié</option>
+                                <option value="independant">Indépendant</option>
+                                <option value="entrepreneur">Entrepreneur</option>
+                                <option value="retraite">Retraité</option>
+                                <option value="etudiant">Étudiant</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="situationFamiliale">Situation Familiale</label>
+                            <select id="situationFamiliale" name="situationFamiliale" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="celibataire">Célibataire</option>
+                                <option value="marie">Marié(e)</option>
+                                <option value="pacse">Pacsé(e)</option>
+                                <option value="divorce">Divorcé(e)</option>
+                                <option value="veuf">Veuf/Veuve</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="objectifFinancier">Objectif Financier Principal</label>
+                    <select id="objectifFinancier" name="objectifFinancier" required>
+                        <option value="">Sélectionnez une option</option>
+                        <option value="epargne">Épargne</option>
+                        <option value="investissement">Investissement</option>
+                        <option value="retraite">Préparation retraite</option>
+                        <option value="impots">Optimisation fiscale</option>
+                        <option value="patrimoine">Transmission de patrimoine</option>
+                        <option value="immobilier">Investissement immobilier</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="imagePersonnalisee">Image personnalisée</label>
+                    <div class="file-upload">
+                        <input type="file" id="imagePersonnalisee" name="imagePersonnalisee" accept="image/*" class="file-input">
+                        <label for="imagePersonnalisee" class="file-label">
+                            <span class="file-icon">📁</span>
+                            <span class="file-text">Choisir une image</span>
+                        </label>
+                        <div class="file-preview" id="imagePreview"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="commentaires">Commentaires</label>
+                    <textarea id="commentaires" name="commentaires" rows="3" placeholder="Commentaires supplémentaires (optionnel)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('financialForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Formulaire soumis avec succès !');
+            // Ici vous pourriez ajouter du code pour envoyer les données à votre serveur
+        });
+    </script>
+</body>
+</html>

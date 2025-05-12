@@ -1,0 +1,61 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+
+<body>
+<div class="container">
+  <h1>Catégories de Transactions</h1>
+  <div class="category-list">
+    <div class="category-card">
+      <div class="category-icon">🍽️</div>
+      <div class="category-name">Alimentation</div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🚗</div>
+      <div class="category-name">Transport</div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🏠</div>
+      <div class="category-name">Loyer</div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h2>Ajouter une Nouvelle Catégorie</h2>
+    <form action="/ajouter_categorie" method="POST">
+       {% csrf_token %} 
+      <div class="form-group">
+        <label for="name">nom utilisateur</label>
+        <input type="text" id="nom" name="nomutilisateur" placeholder="nom utilisateur">
+      </div>
+      <div class="form-group">
+        <label for="name">Nom de la catégorie</label>
+        <select id="nom" name="categorie" required>
+          <option value="">-- Choisir une categorie --</option>
+          <option value="🍔">🍔 Alimentation</option>
+          <option value="🚗">🚗 Transport</option>
+          <option value="🏠">🏠 Loyer / Maison</option>
+          <option value="🎁">🎁 Cadeaux</option>
+          <option value="📚">📚 Éducation</option>
+          <option value="💊">💊 Santé</option>
+          <option value="✈️">✈️ Voyages</option>
+          <option value="💼">💼 Travail</option>
+          <option value="⚽">⚽ Loisirs</option>
+          <option value="💡">💡 Factures</option>
+          <option value="💰">💰 Épargne</option>
+          <option value="🛍️">🛍️ Shopping</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="type">Type de transaction</label>
+        <select id="type" name="type">
+          <option value="dépense">Dépense</option>
+          <option value="revenu">Revenu</option>
+        </select>
+      </div>
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+</div>
+</body>
+{% endblock content %}

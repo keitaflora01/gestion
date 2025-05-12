@@ -1,0 +1,50 @@
+ body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #07145f;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .action-icons i {
+      margin: 0 5px;
+      cursor: pointer;
+      color: #555;
+      transition: color 0.3s ease;
+    }
+
+    .action-icons i:hover {
+      color: #000;
+    }
+
+    .fa-pen {
+      color: #FFC107;
+    }
+
+    .fa-trash {
+      color: #F44336;
+    }
+
+    .fa-eye {
+      color: #2196F3;
+    }

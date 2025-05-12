@@ -1,0 +1,68 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Nouvelle Revenue</h1>
+            <p>Enregistrer rapidement vos revenues</p>
+        </div>
+        
+        <div class="card">
+            <form id="expense-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="required">utilisateur</label>
+                        <div class="input-group">
+                            <input type="name" id="name" name="utilisateur" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category" class="required">Catégorie</label>
+                        <div class="input-group">
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Choisir</option>
+                                <option value="1">Alimentation</option>
+                                <option value="2">Logement</option>
+                                <option value="3">Transport</option>
+                                <option value="4">Loisirs</option>
+                                <option value="5">Santé</option>
+                                <option value="6">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="amount" class="required">Montant</label>
+                        <div class="input-group">
+                            <span class="prefix">€</span>
+                            <input type="number" id="amount" name="amount" class="amount-input" step="0.01" min="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date" class="required">Date</label>
+                        <div class="input-group">
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <div class="input-group">
+                        <textarea id="description" name="description" placeholder="Détails de la revenue..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button type="button" class="btn btn-back" id="btn-back">Retour</button>
+                    <button type="submit" class="btn btn-danger pulse">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

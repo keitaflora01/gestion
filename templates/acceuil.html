@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Pro - Gestion intelligente des finances personnelles</title>
+    <link rel="stylesheet" href="{% static 'css/acceuil.css' %}">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-text">Financial Pro</div>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <ul class="nav-menu">
+                <li><a href="#acceuil">Accueil</a></li>
+                <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="{% url 'connexion'%}" class="btn">Se connecter</a></li>
+            </ul>
+        </div>
+    </header>
+
+    
+    {% comment %} Hero Section with Carousel {% endcomment %}
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background-image: url('/api/placeholder/1200/500')">
+                        <div class="carousel-content">
+                            <h1 class="carousel-title">Prenez le contrôle de vos finances</h1>
+                            <p class="carousel-description">Financial Pro vous offre une vision claire et intelligente de votre situation financière pour des décisions éclairées.</p>
+                            <a href="#" class="btn">Commencer gratuitement</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('/api/placeholder/1200/500')">
+                        <div class="carousel-content">
+                            <h1 class="carousel-title">Économisez intelligemment</h1>
+                            <p class="carousel-description">Notre IA analyse vos habitudes et propose des stratégies d'épargne personnalisées pour atteindre vos objectifs.</p>
+                            <a href="#" class="btn">Découvrir nos outils</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url('/api/placeholder/1200/500')">
+                        <div class="carousel-content">
+                            <h1 class="carousel-title">Planifiez votre avenir financier</h1>
+                            <p class="carousel-description">Des projections précises et des simulations pour vous aider à préparer sereinement votre retraite et vos projets.</p>
+                            <a href="#" class="btn">Voir les fonctionnalités</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-slide="0"></div>
+                    <div class="indicator" data-slide="1"></div>
+                    <div class="indicator" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="fonctionnalites">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fonctionnalités intelligentes</h2>
+                <p>Financial Pro combine des outils puissants et une intelligence artificielle avancée pour vous offrir une expérience de gestion financière complète.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Tableau de bord personnalisé</h3>
+                    <p class="feature-description">Visualisez vos revenus, dépenses et investissements sur un tableau de bord intuitif adapté à vos besoins.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Analyse prédictive</h3>
+                    <p class="feature-description">Notre IA anticipe vos tendances financières et vous alerte sur les opportunités ou risques potentiels.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Suivi budgétaire</h3>
+                    <p class="feature-description">Créez et gérez facilement vos budgets avec des catégories personnalisables et des alertes en temps réel.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Objectifs financiers</h3>
+                    <p class="feature-description">Définissez vos objectifs d'épargne et suivez votre progression avec des suggestions pour les atteindre plus rapidement.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Application mobile</h3>
+                    <p class="feature-description">Accédez à vos finances partout avec notre application mobile intuitive disponible sur iOS et Android.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Sécurité avancée</h3>
+                    <p class="feature-description">Vos données sont protégées par un cryptage de niveau bancaire et une authentification à deux facteurs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="temoignages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ce que nos utilisateurs disent</h2>
+                <p>Découvrez comment Financial Pro a transformé la gestion financière de nos utilisateurs.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Grâce à Financial Pro, j'ai pu économiser 30% de mes revenus en seulement 6 mois. L'application a identifié des dépenses récurrentes que je pouvais réduire facilement."</p>
+                    <div class="testimonial-author">
+                        <img src="{% static 'images/img1.PNG' %}" alt="Marie L." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Marie L.</h4>
+                            <p>Utilisatrice depuis 1 an</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"L'analyse prédictive de Financial Pro m'a permis d'anticiper un découvert bancaire et de prendre les mesures nécessaires à temps. Un outil indispensable pour moi."</p>
+                    <div class="testimonial-author">
+                        <img src="{% static 'images/img5.PNG' %}" alt="Thomas D." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Thomas D.</h4>
+                            <p>Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Je planifie ma retraite avec Financial Pro et les projections sont d'une précision remarquable. L'interface est intuitive et me permet de tester différents scénarios."</p>
+                    <div class="testimonial-author">
+                        <img src="{% static 'images/img7.PNG' %}" alt="Sophie M." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Sophie M.</h4>
+                            <p>Directrice financière</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Commencez à transformer vos finances dès aujourd'hui</h2>
+            <p>Rejoignez des milliers d'utilisateurs qui ont déjà pris le contrôle de leur avenir financier avec Financial Pro.</p>
+            <a href="#" class="btn btn-light">Essai gratuit pendant 30 jours</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Financial Pro</h3>
+                    <p>La solution intelligente pour gérer vos finances personnelles et atteindre vos objectifs financiers.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Centre d'aide</a></li>
+                        <li><a href="#">Contactez-nous</a></li>
+                        <li><a href="#">Tutoriels</a></li>
+                        <li><a href="#">Communauté</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Légal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Financial Pro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
