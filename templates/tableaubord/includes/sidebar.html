@@ -1,31 +1,65 @@
   <div class="sidebar">
-            <div class="logo">Budget<span>Pro</span></div>
+            <div class="logo">Smart<span>Finance</span></div>
             
             <ul class="menu">
                 <li class="menu-item active">
-                    <i>📊</i> Tableau de bord
+                    <a href="{% url 'tableaubord' %}">
+                       <i>📊</i> Tableau de bord
+                    </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{% url 'depenses' %}">
+                    <a href="{% url 'depensetableau' %}">
                         <i>💰</i> Dépenses
                     </a>  
                 </li>
                 <li class="menu-item">
-                    <a href="{% url 'revenus' %}"></a>
-                    <i>💹</i> Revenus
-                </li>
-                <li class="menu-item">>
-                    <i>📈</i> Rapports
+                    <a href="{% url 'revenuetableau' %}"> 
+                        <i>💹</i> Revenus
+                    </a>
+                    
                 </li>
                 <li class="menu-item">
-                    <a href="{% url 'objectif' %}"></a>
-                    <i>🎯</i> Objectifs
+                    <a href="{% url 'chat-api' %}">
+                        <i>🤖</i> Prompts IA
+                    </a>     
                 </li>
+                <li class="menu-item">
+                    <a href="{% url 'objectif' %}">
+                        <i>🎯</i> Objectifs
+                    </a>    
+                </li>
+                <li class="menu-item">
+                    <a href="{% url 'feedback' %}">
+                        <i>🧾</i> Support
+                    </a>    
+                </li>
+
                 <li class="menu-item">
                     <i>👥</i> Collaborateurs
                 </li>
-                <li class="menu-item">
-                    <i>⚙️</i> Paramètres
+                <li class="menu-item dropdown">
+                    <div class="dropdown-toggle">
+                        <i>⚙️</i> Paramètres
+                        <span class="arrow">▼</span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'profil_utilisateur' %}">👤profil utilisateur</a></li>
+                        <li><a href="#">🔔 Notifications</a></li>
+                        <li><a href="{% url 'deconnexion' %}">🚪 Déconnexion</a></li>
+                    </ul>
                 </li>
+
             </ul>
         </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".menu-item.dropdown");
+    const toggle = dropdown.querySelector(".dropdown-toggle");
+
+    toggle.addEventListener("click", () => {
+      dropdown.classList.toggle("open");
+    });
+  });
+</script>
+
+     

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Analytic
+from .models import Objectif
 
-admin.site.register(Analytic)
+admin.site.register([Objectif])

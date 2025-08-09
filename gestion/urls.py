@@ -1,3 +1,7 @@
+from django.urls import path, include
+from . import settings
+from django.conf.urls.static import static
+
 """
 URL configuration for gestion project.
 
@@ -16,15 +20,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import acceuil, tableaubord,depense,revenue
+from .views import acceuil, tableaubord,dashbord,stats_api,trends_api
+from django.contrib.auth.views import LogoutView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/',include('users.urls')),
     path('',acceuil),
-    path('tableaubord',tableaubord),
-    path('tableaubord/depensetableau',depense, name="depenses"),
-    path('tableaubord/revenuetableau',revenue, name="revenus"),
-    path('categorie/',include('categorie.urls')),
-]
+    path('dashboard/',tableaubord, name='tableaubord'),
+    path('dashbordadmin/', dashbord, name='dashbord'),
+    path('dashboard/category/',include('category.urls')),
+    path('dashboard/transactions',include('transactions.urls')),
+    path('dashboard/objectif', include('analytic.urls')),
+    path('api/', include('api.urls')),
+    path('rapport/', include('rapport.urls')),
+    path('api/stats/',stats_api, name='stats_api'),
+    path('api/trends/',trends_api, name='trends_api'),
+    path('logout/', LogoutView.as_view(next_page='connexion'), name='logout'),
+    path('dashbordadmin/', dashbord, name='dashbord'),
+    path('notification/', include('notification.urls')),
+    
+]+ static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
 

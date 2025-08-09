@@ -1,0 +1,92 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<!-- Structure HTML du rapport budgétaire -->
+<div class="budget-report">
+  <h2>Rapport Budgétaire</h2>
+  
+  <div class="summary-section">
+    <div class="summary-card">
+      <div class="summary-title">Budget Total</div>
+      <div class="summary-value">€120,000</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-title">Dépensé</div>
+      <div class="summary-value">€78,500</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-title">Restant</div>
+      <div class="summary-value positive">€41,500</div>
+    </div>
+  </div>
+  
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>Progression du budget</span>
+      <span>65.4%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 65.4%;"></div>
+    </div>
+  </div>
+  
+  <table class="budget-table">
+    <thead>
+      <tr>
+        <th>Département</th>
+        <th>Budget</th>
+        <th>Dépensé</th>
+        <th>Restant</th>
+        <th>Utilisation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Marketing</td>
+        <td>€35,000</td>
+        <td>€24,500</td>
+        <td class="positive">€10,500</td>
+        <td>
+          <div class="mini-progress">
+            <div class="mini-progress-fill" style="width: 70%;"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Développement</td>
+        <td>€42,000</td>
+        <td>€38,000</td>
+        <td class="positive">€4,000</td>
+        <td>
+          <div class="mini-progress">
+            <div class="mini-progress-fill" style="width: 90%;"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Opérations</td>
+        <td>€28,000</td>
+        <td>€12,000</td>
+        <td class="positive">€16,000</td>
+        <td>
+          <div class="mini-progress">
+            <div class="mini-progress-fill" style="width: 43%;"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Ressources Humaines</td>
+        <td>€15,000</td>
+        <td>€4,000</td>
+        <td class="positive">€11,000</td>
+        <td>
+          <div class="mini-progress">
+            <div class="mini-progress-fill" style="width: 27%;"></div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

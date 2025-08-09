@@ -1,0 +1,68 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Modifier une dépense</h1>
+    <div class="header-actions">
+        <a href="{% url 'depensetableau' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+</div>
+
+<div class="form-container">
+    <div class="expense-form-card">
+        <div class="form-header">
+            <div class="form-icon">✏️</div>
+            <h2 class="form-title">Modifier la dépense</h2>
+        </div>
+        <form method="post" class="expense-form">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.categorie.id_for_label }}" class="form-label">{{ form.categorie.label }}</label>
+                    {{ form.categorie }}
+                    {% if form.categorie.errors %}
+                    <div class="error-message">{{ form.categorie.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.montant.id_for_label }}" class="form-label">{{ form.montant.label }}</label>
+                    <div class="input-with-icon">
+                        {{ form.montant }}
+                        <span class="currency-symbol">€</span>
+                    </div>
+                    {% if form.montant.errors %}
+                    <div class="error-message">{{ form.montant.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.datedepense.id_for_label }}" class="form-label">{{ form.datedepense.label }}</label>
+                    {{ form.datedepense }}
+                    {% if form.datedepense.errors %}
+                    <div class="error-message">{{ form.datedepense.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}" class="form-label">{{ form.description.label }}</label>
+                {{ form.description }}
+                {% if form.description.errors %}
+                <div class="error-message">{{ form.description.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'depensetableau' %}'">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

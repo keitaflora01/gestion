@@ -1,0 +1,74 @@
+{% extends './tableaubord.html' %}  <!-- Assurez-vous d'avoir une base.html -->
+
+{% block content %}
+<div class="main-content">
+    <div class="header">
+        <h1 class="page-title">Profil Utilisateur</h1>
+    </div>
+
+    <div class="card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Informations Personnelles</h2>
+        </div>
+        
+        <div class="profile-container" style="display: flex; gap: 30px; align-items: flex-start;">
+            <div class="profile-image" style="flex: 0 0 200px;">
+                {% if userprofile.imagepersonnaliser %}
+                    <img src="{{ userprofile.imagepersonnaliser.url }}" alt="Photo de profil" 
+                         style="width: 100%; border-radius: 10px; border: 1px solid #eee;">
+                {% else %}
+                    <div style="width: 100%; height: 200px; background: #f5f5f5; 
+                                display: flex; align-items: center; justify-content: center;
+                                border-radius: 10px; border: 1px solid #eee;">
+                        <span style="color: #999;">Pas de photo</span>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="profile-info" style="flex: 1;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label class="form-label">Nom d'utilisateur</label>
+                        <input type="text" class="form-control" value="{{ userprofile.user }}" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Nom complet</label>
+                        <input type="text" class="form-control" value="{{ userprofile.fullname }}" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" value="{{ userprofile.email }}" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Téléphone</label>
+                        <input type="text" class="form-control" value="{{ userprofile.telephone }}" readonly>
+                    </div>
+         
+                    <div class="form-group">
+                        <label class="form-label">Statut Professionnel</label>
+                        <input type="text" class="form-control" value="{{ userprofile.statutprofessionnel }}" readonly>
+                    </div>
+              
+                    <div class="form-group">
+                        <label class="form-label">Revenu Annuel</label>
+                        <input type="text" class="form-control" value="{{ userprofile.revenueannuel }}" readonly>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Objectif Financier</label>
+                    <textarea class="form-control" rows="3" readonly>{{ userprofile.objectiffinanciaire }}</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Commentaires</label>
+                    <textarea class="form-control" rows="3" readonly>{{ userprofile.commentaire }}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Détails de la dépense</h1>
+    <div class="header-actions">
+        <a href="{% url 'depensetableau' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+</div>
+
+<div class="detail-container">
+    <div class="expense-detail-card">
+        <div class="detail-header">
+            <div class="detail-icon">💰</div>
+            <h2 class="detail-title">Dépense #{{ depense.id }}</h2>
+        </div>
+        
+        <div class="detail-content">
+            <div class="detail-row">
+                <div class="detail-label">Catégorie:</div>
+                <div class="detail-value">{{ depense.categorie.name }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Montant:</div>
+                <div class="detail-value">{{ depense.montant }} €</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Date de la dépense:</div>
+                <div class="detail-value">{{ depense.datedepense|date:"d/m/Y" }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Date de création:</div>
+                <div class="detail-value">{{ depense.date|date:"d/m/Y H:i" }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Dernière modification:</div>
+                <div class="detail-value">{{ depense.datemodification|date:"d/m/Y" }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Description:</div>
+                <div class="detail-value description">{{ depense.description|default:"Aucune description" }}</div>
+            </div>
+        </div>
+        
+        <div class="detail-actions">
+            <a href="{% url 'modifierdepense' depense.id %}" class="btn btn-primary">
+                <i class="fas fa-edit"></i> Modifier
+            </a>
+            <a href="{% url 'supprimerdepense' depense.id %}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Supprimer
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

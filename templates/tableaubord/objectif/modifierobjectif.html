@@ -1,0 +1,77 @@
+{% extends "../tableaubord.html" %}
+
+{% load static %}
+{% block content %}
+<!-- Header -->
+<div class="header">
+    <h1 class="page-title">Modifier un Objectif Financier</h1>
+    <div class="header-actions">
+        <a href="{% url 'objectif' %}" class="btn btn-secondary">
+            Retour aux objectifs
+        </a>
+    </div>
+</div>
+
+<!-- Formulaire de modification d'objectif -->
+<div class="dashboard-grid">
+    <div class="card card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Modifier l'objectif: {{ objectif.titre }}</h2>
+        </div>
+        <div class="objectif-form-container">
+            <form action="{% url 'modifierobjectif' objectif.id %}" method="POST" class="objectif-form">
+                {% csrf_token %}
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="titre" class="form-label">Titre de l'objectif</label>
+                        <input type="text" id="titre" name="titre" class="form-control" value="{{ form.titre.value }}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="categorie" class="form-label">Catégorie</label>
+                        <select id="categorie" name="categorie" class="form-control">
+                            <option value="Epargnes" {% if form.categorie.value == 'Epargnes' %}selected{% endif %}>Epargnes</option>
+                            <option value="Depenses" {% if form.categorie.value == 'Depenses' %}selected{% endif %}>Depenses</option>
+                            <option value="Dette" {% if form.categorie.value == 'Dette' %}selected{% endif %}>Dette</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="montantcible" class="form-label">Montant cible</label>
+                        <div class="input-with-icon">
+                            <input type="number" id="montantcible" name="montantcible" class="form-control" min="1" value="{{ form.montantcible.value }}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="montantactuel" class="form-label">Montant actuel</label>
+                        <div class="input-with-icon">
+                            <input type="number" id="montantactuel" name="montantactuel" class="form-control" min="0" value="{{ form.montantactuel.value }}">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="datelimite" class="form-label">Date limite</label>
+                        <input type="date" id="datelimite" name="datelimite" class="form-control" value="{{ form.datelimite.value|date:'Y-m-d' }}" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" name="description" class="form-control" rows="4">{{ form.description.value }}</textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                    <a href="{% url 'objectif' %}" class="btn btn-secondary">Annuler</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

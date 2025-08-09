@@ -17,7 +17,7 @@
         <div class="form-container">
             <h1 class="section-title">Informations Personnelles</h1>
             
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %} 
                 <div class="form-group">
                     <label for="nomComplet">Nom complet</label>
@@ -47,16 +47,6 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="adresse">Adresse</label>
-                    <input type="text" id="adresse" name="adresse" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="ville">Ville</label>
-                    <input type="text" id="ville" name="ville" required>
-                </div>
-                
                 <h1 class="section-title">Informations Financières</h1>
                 
                 <div class="form-group">
@@ -79,19 +69,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="situationFamiliale">Situation Familiale</label>
-                            <select id="situationFamiliale" name="situationFamiliale" required>
-                                <option value="">Sélectionnez une option</option>
-                                <option value="celibataire">Célibataire</option>
-                                <option value="marie">Marié(e)</option>
-                                <option value="pacse">Pacsé(e)</option>
-                                <option value="divorce">Divorcé(e)</option>
-                                <option value="veuf">Veuf/Veuve</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -110,7 +87,8 @@
                 <div class="form-group">
                     <label for="imagePersonnalisee">Image personnalisée</label>
                     <div class="file-upload">
-                        <input type="file" id="imagePersonnalisee" name="imagePersonnalisee" accept="image/*" class="file-input">
+                        <input type="file" name="imagepersonnaliser"  accept="image/*">
+                        <!-- <input type="file"  name="imagepersonnaliser" accept="image/*" class="file-input"> -->
                         <label for="imagePersonnalisee" class="file-label">
                             <span class="file-icon">📁</span>
                             <span class="file-text">Choisir une image</span>
@@ -131,12 +109,6 @@
         </div>
     </div>
     
-    <script>
-        document.getElementById('financialForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Formulaire soumis avec succès !');
-            // Ici vous pourriez ajouter du code pour envoyer les données à votre serveur
-        });
-    </script>
+
 </body>
 </html>

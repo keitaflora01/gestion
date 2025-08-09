@@ -1,0 +1,56 @@
+{% extends "../tableaubord.html" %}
+
+{% load static %}
+{% block content %}
+<!-- Header -->
+<div class="header">
+    <h1 class="page-title">Supprimer un Objectif Financier</h1>
+    <div class="header-actions">
+        <a href="{% url 'objectif' %}" class="btn btn-secondary">
+            Retour aux objectifs
+        </a>
+    </div>
+</div>
+
+<!-- Confirmation de suppression -->
+<div class="dashboard-grid">
+    <div class="card card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Confirmation de suppression</h2>
+        </div>
+        <div class="confirmation-container">
+            <div class="confirmation-message">
+                <p>Êtes-vous sûr de vouloir supprimer l'objectif "<strong>{{ objectif.titre }}</strong>" ?</p>
+                <p>Cette action est irréversible et toutes les données associées à cet objectif seront perdues.</p>
+            </div>
+            
+            <div class="objectif-summary">
+                <div class="summary-item">
+                    <span class="summary-label">Catégorie:</span>
+                    <span class="summary-value">{{ objectif.categorie }}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Montant cible:</span>
+                    <span class="summary-value">{{ objectif.montantcible }} €</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Montant actuel:</span>
+                    <span class="summary-value">{{ objectif.montantactuel }} €</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Date limite:</span>
+                    <span class="summary-value">{{ objectif.datelimite }}</span>
+                </div>
+            </div>
+            
+            <div class="confirmation-actions">
+                <form action="{% url 'supprimerobjectif' objectif.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+                    <a href="{% url 'objectif' %}" class="btn btn-secondary">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

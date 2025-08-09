@@ -3,34 +3,90 @@
 {% block content %}
 
 <body>
+     <div class="header">
+        <h1 class="page-title">Tableau des Depenses</h1>
+        <div class="header-actions">         
+          <a href="{% url 'categoriedepense' %}" class="btn btn-primary" id="addObjectifBtn">categorie</a>
+          <a href="{% url 'ajouterdepense' %}" class="btn btn-primary" id="addObjectifBtn">Ajouter une depense</a>
+        </div>
+     </div>
+  
+    <div class="dashboard-grid">
+      <div class="card card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Liste des depenses</h2>
+            <div class="search-container">
+              <input type="text" id="searchAll" class="search-box"  placeholder="🔍Rechercher une depense...">
+            </div>
+        </div>
 
-  <h2>Tableau des Depenses</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Utilisateur</th>
-        <th>Catégorie</th>
-        <th>Montant</th>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Jean Dupont</td>
-        <td>Alimentation</td>
-        <td>45.00€</td>
-        <td>2025-05-10</td>
-        <td>Achat supermarché</td>
+        {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="table-container">
+        <table id="depenseTable">
+          <thead>
+            <tr>
+     
+              <th>Catégorie</th>
+              <th>Montant</th>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for depense in depenses %}
+          <tr>
+       
+          <td>{{depense.categorie.name}}</td>
+        <td>{{depense.montant}}</td>
+        <td>{{depense.date}}</td>
+        <td>{{depense.description}}</td>
         <td class="action-icons">
-          <i class="fas fa-pen" title="Modifier"></i>
-          <i class="fas fa-trash" title="Supprimer"></i>
-          <i class="fas fa-eye" title="Voir"></i>
+             <div class="item-actions">
+                        <a href="{% url 'detaildepense' depense.id %}" class="action-btn view-btn" title="Voir détails">
+                           <i class="fas fa-eye">👁️</i>
+                        </a>
+                        <a href="{% url 'modifierdepense' depense.id %}" class="action-btn edit-btn" title="Modifier">
+                           <i class="fas fa-edit">✏️</i>
+                        </a>
+                        <a href="{% url 'supprimerdepense' depense.id %}" class="action-btn delete-btn" title="Supprimer">
+                          <i class="fas fa-trash-alt">🗑️</i>
+                        </a>
+                    </div>
         </td>
       </tr>
+      {% endfor %}
       <!-- Tu peux ajouter d'autres lignes ici -->
     </tbody>
   </table>
+  </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchAll = document.getElementById('searchAll');
+    const table = document.getElementById('depenseTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    searchAll.addEventListener('input', function() {
+        const value = searchAll.value.toLowerCase();
+        for (let row of rows) {
+            // On vérifie toutes les cellules sauf la dernière (actions)
+            let found = false;
+            for (let i = 0; i < row.cells.length - 1; i++) {
+                if (row.cells[i].textContent.toLowerCase().includes(value)) {
+                    found = true;
+                    break;
+                }
+            }
+            row.style.display = found ? '' : 'none';
+        }
+    });
+});
+</script>
 {% endblock content %}

@@ -1,0 +1,63 @@
+{% extends "./dashbord.html" %}
+
+{% block Content %}
+<div class="content">
+  <div class="page-title">
+    <h1>Mon Tableau de Données</h1>
+    <div class="header-actions">
+      <div class="search-bar">
+        <i class="search-icon">🔍</i>
+        <input type="text" class="search-input" placeholder="Rechercher...">
+      </div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header">
+      <h2 class="table-title">Liste des utilisateurs</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for userprofil in userprofils %}
+        <tr>
+          <td>
+            <div class="user-info">
+              <div class="user-avatar">{{userprofil.name}}</div>
+            </div>
+          </td>
+          <td>
+            <div class="user-info">
+              <div class="user-avatar">{{userprofil.email}}</div>
+            </div>
+          </td> 
+          <td>
+            <div class="user-info">
+              <div class="user-avatar">{{userprofil.date_heure}}</div>
+            </div>
+          </td> 
+          <td>
+          {% if user.is_active %}
+          <span style="color:green;">Actif</span>
+          {% else %}
+          <span style="color:red;">Inactif</span>
+          {% endif %}
+          </td>
+    
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+
+  </div>
+</div>
+{% endblock Content %}

@@ -1,0 +1,79 @@
+{% extends "../tableaubord.html" %}
+
+{% load static %}
+{% block content %}
+<!-- Header -->
+<div class="header">
+    <h1 class="page-title">Ajouter un Objectif Financier</h1>
+    <div class="header-actions">
+        <a href="{% url 'objectif' %}" class="btn btn-secondary">
+            Retour aux objectifs
+        </a>
+    </div>
+</div>
+
+<!-- Formulaire d'ajout d'objectif -->
+<div class="dashboard-grid">
+    <div class="card card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Nouvel objectif</h2>
+        </div>
+        <div class="objectif-form-container">
+            <form action="{% url 'ajouterobjectif' %}" method="POST" class="objectif-form">
+                {% csrf_token %}
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="titre" class="form-label">Titre de l'objectif</label>
+                        <input type="text" id="titre" name="titre" class="form-control" placeholder="Ex: Vacances d'été" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        
+                       <div class="form-group">
+                           <label for="categorie" class="form-label">Categorie </label>   
+                           <select id="categorie" name="categorie" class="form-control">                              
+                              <option value="Epargnes">Epargnes</option>
+                              <option value="Depenses" selected>Depenses</option>
+                              <option value="Dette">Dette</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="montantcible" class="form-label">Montant cible</label>
+                        <div class="input-with-icon">
+                            <input type="number" id="montantcible" name="montantcible" class="form-control" min="1" placeholder="Montant à atteindre" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="montantactuel" class="form-label">Montant actuel</label>
+                        <div class="input-with-icon">
+                            <input type="number" id="montantactuel" name="montantactuel" class="form-control" min="0" placeholder="Montant déjà épargné" value="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="datelimite" class="form-label">Date limite</label>
+                        <input type="date" id="datelimite" name="datelimite" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" name="description" class="form-control" rows="4" placeholder="Décrivez votre objectif..."></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Enregistrer l'objectif</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

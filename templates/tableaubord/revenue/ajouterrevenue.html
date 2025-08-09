@@ -1,0 +1,60 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Ajouter une revenue</h1>
+    <div class="header-actions">
+        <a href="{% url 'tableaubord' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+</div>
+
+<div class="form-container">
+    <div class="expense-form-card">
+        <div class="form-header">
+            <div class="form-icon">💰</div>
+            <h2 class="form-title">Nouvelle revenue</h2>
+        </div>
+        <form method="post" class="expense-form">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="categorie" class="form-label">Catégorie</label>
+                    <select id="categorie" name="categorie" class="form-control" required>
+                        <option value="default" disabled selected>Sélectionnez une catégorie</option>
+                        {% for categorie  in categories  %}
+                        <option value="{{categorie.id}}">{{categorie.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="montant" class="form-label">Montant (FCFA)</label>
+                    <div class="input-with-icon">
+                        <input type="number" id="montant" name="montant" class="form-control" step="0.01" min="0" required>
+                        <span class="currency-symbol">FCFA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" id="date" name="date" class="form-control" required value="{% now 'Y-m-d' %}">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" name="description" class="form-control" rows="3" placeholder="Décrivez votre revenue..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'tableaubord' %}'">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

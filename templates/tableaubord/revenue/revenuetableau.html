@@ -2,13 +2,30 @@
 
 {% block content %}
 <body>
-
-  <h2>Tableau des Revenues</h2>
-
-  <table>
+ <div class="header">
+        <h1 class="page-title">Tableau des Revenus</h1>
+        <div class="header-actions">
+          <a href="{% url 'categorierevenue' %}" class="btn btn-primary" id="addObjectifBtn">categorie</a>         
+          <a href="{% url 'ajouterrevenue' %}" class="btn btn-primary" id="addObjectifBtn">Ajouter une revenue</a> 
+        </div>
+     </div>
+  <div class="dashboard-grid">
+  <div class="card card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Liste des revenues</h2>
+            <div class="search-container">
+              <input type="text" id="searchAll" class="search-box" placeholder="🔍Rechercher une revenue...">
+            </div>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+        {% endif %} 
+   <div class="table-container">      
+  <table id="revenueTable">
     <thead>
       <tr>
-        <th>Utilisateur</th>
         <th>Catégorie</th>
         <th>Montant</th>
         <th>Date</th>
@@ -17,19 +34,54 @@
       </tr>
     </thead>
     <tbody>
+      {% for revenue in revenues %}
       <tr>
-        <td>Jean Dupont</td>
-        <td>Alimentation</td>
-        <td>45.00€</td>
-        <td>2025-05-10</td>
-        <td>Achat supermarché</td>
+        <td>{{revenue.categorie.name}}</td>
+        <td>{{revenue.montant}}</td>
+        <td>{{revenue.date}}</td>
+        <td>{{revenue.description}}</td>
         <td class="action-icons">
-          <i class="fas fa-pen" title="Modifier"></i>
-          <i class="fas fa-trash" title="Supprimer"></i>
-          <i class="fas fa-eye" title="Voir"></i>
+       <div class="item-actions">
+            <a href="{% url 'detailrevenue' revenue.id %}" class="action-btn view-btn" title="Voir détails">
+              <i class="fas fa-eye">👁️</i>
+            </a>
+            <a href="{% url 'modifierrevenue' revenue.id %}" class="action-btn edit-btn" title="Modifier">
+              <i class="fas fa-edit">✏️</i>
+            </a>
+            <a href="{% url 'supprimerrevenue' revenue.id %}" class="action-btn delete-btn" title="Supprimer">
+              <i class="fas fa-trash-alt">🗑️</i>
+            </a>
+          </div>
         </td>
       </tr>
-      <!-- Tu peux ajouter d'autres lignes ici -->
+      {% endfor %}
     </tbody>
   </table>
+</div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchAll = document.getElementById('searchAll');
+    const table = document.getElementById('revenueTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    searchAll.addEventListener('input', function() {
+        const value = searchAll.value.toLowerCase();
+        for (let row of rows) {
+            // On vérifie toutes les cellules sauf la dernière (actions)
+            let found = false;
+            for (let i = 0; i < row.cells.length - 1; i++) {
+                if (row.cells[i].textContent.toLowerCase().includes(value)) {
+                    found = true;
+                    break;
+                }
+            }
+            row.style.display = found ? '' : 'none';
+        }
+    });
+});
+</script>
+
 {% endblock content %}

@@ -1,0 +1,47 @@
+<div class="sidebar">
+    <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0ZM28 28C28 28.552 27.552 29 27 29H13C12.448 29 12 28.552 12 28V12C12 11.448 12.448 11 13 11H27C27.552 11 28 11.448 28 12V28Z" fill="#7065F0"/>
+          <path d="M24 17H16C15.448 17 15 17.448 15 18C15 18.552 15.448 19 16 19H24C24.552 19 25 18.552 25 18C25 17.448 24.552 17 24 17Z" fill="#7065F0"/>
+          <path d="M24 21H16C15.448 21 15 21.448 15 22C15 22.552 15.448 23 16 23H24C24.552 23 25 22.552 25 22C25 21.448 24.552 21 24 21Z" fill="#7065F0"/>
+        </svg>
+        <span class="logo-text">SmartFinance</span>
+    </div>
+      
+    <div class="menu">
+        <a href="#" class="menu-item active">
+            <i data-feather="grid">📊</i>
+          Tableau de bord
+        </a>
+        <a href="{% url 'utilisateurs' %}" class="menu-item">
+            <i data-feather="users">👥</i>
+              Utilisateurs
+        </a>
+        <a href="#" class="menu-item">
+          <i data-feather="trending-up">📈</i>
+          Statistiques
+        </a>
+        <a href="{% url 'allfeedback' %}" class="menu-item">
+          <i data-feather="message-square">🧾</i>
+          Support
+        </a>
+        <a href="#" class="menu-item">
+          <i data-feather="cpu">🤖</i>
+          Prompts IA
+        </a>
+        <a href="#" class="menu-item">
+          <i data-feather="settings">⚙️</i>
+          Paramètres
+        </a>
+    </div>
+      
+    <div class="admin-profile">
+        <div class="admin-avatar">
+          KT
+        </div>
+        <div class="admin-info">
+            <div class="admin-name">Admin Keita</div>
+            <div class="admin-role">Super Administrateur</div>
+        </div>
+    </div>
+</div>

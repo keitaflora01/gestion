@@ -1,0 +1,217 @@
+/* Styles spécifiques pour la page des objectifs */
+
+/* Conteneur des cartes d'objectifs */
+.objectifs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* form{
+    border: 1px solid red!important;
+} */
+/* Carte d'objectif */
+.objectif-card {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    padding: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.objectif-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* En-tête de la carte */
+.objectif-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.objectif-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.objectif-category {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.objectif-category.saving {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary);
+}
+
+.objectif-category.debt {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--danger);
+}
+
+.objectif-category.spending {
+    background-color: rgba(76, 201, 240, 0.1);
+    color: var(--success);
+}
+
+/* Détails de l'objectif */
+.objectif-details {
+    margin-bottom: 15px;
+}
+
+/* Barre de progression */
+/* .progress-bar {
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+} */
+.progress-bar {
+    width: 100%;
+    background: #eee;
+    height: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background: rgb(96, 68, 255);
+    transition: width 1s;
+} 
+
+.progress-fill.danger {
+    background-color: var(--danger);
+}
+
+.progress-text {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: right;
+}
+
+.progress-text.danger {
+    color: var(--danger);
+}
+
+/* Montants */
+.objectif-amounts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.current-amount {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.current-amount.danger {
+    color: var(--danger);
+}
+
+.amount-separator {
+    color: var(--gray);
+}
+
+.target-amount {
+    font-size: 18px;
+}
+
+/* Pied de la carte */
+.objectif-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+.date-info {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.date-label {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.date-value {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.objectif-actions {
+    display: flex;
+    gap: 5px;
+}
+
+/* Filtres et contrôles */
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Modal ajustements */
+#objectifModal .modal-content {
+    max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .objectifs-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: var(--target-width); }
+}
+/* Styles pour le graphique */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Options de filtre */
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filter-controls select {
+    max-width: 150px;
+}
+
+/* Animation pour le changement de graphique */
+canvas {
+    transition: opacity 0.3s ease;
+}

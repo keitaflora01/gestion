@@ -1,0 +1,79 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Gestion des Catégories</h1>
+    <div class="header-actions">
+        <a href="{% url 'ajoutercategorieDepense' %}" class="btn btn-primary" id="addObjectifBtn">Ajouter une categorie</a>
+    </div>
+</div>
+
+
+
+<div class="dashboard-grid">
+    <div class="card card-lg">
+        <div class="card-header">
+            <h2 class="card-title">Liste des catégories</h2>
+            <div class="search-container">
+                <input type="text" id="searchCategorie" class="search-box" placeholder="Rechercher une catégorie...">
+            </div>
+        </div>
+
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        <div class="table-container">
+            <table id="categorieTable">
+                <thead>
+                    <tr>
+                        <th>Nom de la categorie</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="categorieTable">
+                     {% for categories in categorie %}
+                    <tr>
+                        <td>{{categories.name}}</td>
+                        <td>{{categories.description}} <span class="progress-indicator"><span class="progress-bar" style="width: 83%; background-color: #F8961E;"></span></span></td>
+                        <td class="action-buttons">
+                            <a href="{% url 'modifiercategorieDepense' categories.id %}" class="action-btn edit"><i>✏️</i></a>                           
+                            <form method="POST" action="{% url 'supprimercategorieDepense' categories.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="action-btn delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie?');"><i>🗑️</i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchCategorie = document.getElementById('searchCategorie');
+    const table = document.getElementById('categorieTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+    searchCategorie.addEventListener('input', function() {
+        const value = searchCategorie.value.toLowerCase();
+        for (let row of rows) {
+            // On vérifie toutes les cellules sauf la dernière (actions)
+            let found = false;
+            for (let i = 0; i < row.cells.length - 1; i++) {
+                if (row.cells[i].textContent.toLowerCase().includes(value)) {
+                    found = true;
+                    break;
+                }
+            }
+            row.style.display = found ? '' : 'none';
+        }
+    });
+});
+</script>
+
+{% endblock content %}

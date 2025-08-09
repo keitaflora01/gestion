@@ -1,0 +1,235 @@
+{% extends "../tableaubord.html" %}
+
+{% load static %}
+{% block content %}
+            <!-- Header -->
+    <div class="header">
+        <h1 class="page-title">Mes Objectifs Financiers</h1>
+        <div class="header-actions">
+                    
+        <button class="btn btn-primary" id="addObjectifBtn">
+            <a href="{% url 'ajouterobjectif' %}">Ajouter un objectif</a>
+        </button>
+        </div>
+    </div>
+
+            <!-- Stats Row -->
+        <div class="dashboard-grid">
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">{{ nombre_objectifs_en_cours }}</div>
+                        <div class="stat-label">Objectifs en cours</div>
+                    </div>
+                </div>
+                
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">{{ nombre_objectifs_atteints }}</div>
+                        <div class="stat-label">Objectifs atteints</div>
+                    </div>
+                </div>
+                
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">{{ nombre_objectifs_en_retard }}</div>
+                        <div class="stat-label">Objectifs en retard</div>
+                    </div>
+                </div>
+                
+                <div class="card card-sm">
+                    <div class="stat-card">
+                        <div class="stat-value">{{ nombre_objectifs_en_retard }}%</div>
+                        <div class="stat-label">Progression moyenne</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Objectifs en cours -->
+            <div class="dashboard-grid">
+                <div class="card card-lg">
+                    <div class="card-header">
+                        <h2 class="card-title">Objectifs en cours</h2>
+                        <div class="filter-controls">
+                            <select id="objectifFilter" class="form-control">
+                                <option value="all">Tous</option>
+                                <option value="saving">Épargne</option>
+                                <option value="spending">Dépenses</option>
+                                <option value="debt">Dette</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="objectifs-container">
+
+                        {% for objectif in objectifs %}
+                        <div class="objectif-card">
+                            <div class="objectif-header">
+                                <div class="objectif-title">{{objectif.titre}}</div>
+                                <div class="objectif-category spending">{{objectif.categorie}}</div>
+                            </div>
+                            <div class="objectif-details">
+                                <div class="objectif-progress">
+                                    <div class="progress-bar" style="width:100%;">
+                                        <div class="progress-fill {{objectif.couleur_progression}}" style="width: {{objectif.pourcentage}};"></div>
+                                    </div>
+                                    <div class="progress-text danger">{{objectif.pourcentage}}</div>
+                                </div>
+                                <div class="objectif-amounts">
+                                    <div class="current-amount danger">{{objectif.montantactuel}}</div>
+                                    <div class="amount-separator">/</div>
+                                    <div class="target-amount">{{objectif.montantcible}}</div>
+                                </div>
+                            </div>
+                            <div class="objectif-footer">
+                                <div class="date-info">
+                                    <div class="date-label">Période:</div>
+                                    <div class="date-value">{{objectif.datelimite}}</div>
+                                </div>
+                                <div class="objectif-actions">
+                                   <a href="{% url 'modifierobjectif' objectif.id %}" class="action-btn edit"><i>✏️</i></a>
+                                   <a href="{% url 'supprimerobjectif' objectif.id %}" class="action-btn delete"><i>🗑️</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objectifs complétés et Graphiques -->
+            <div class="dashboard-grid">
+                <div class="card card-md">
+                    <div class="card-header">
+                        <h2 class="card-title">Objectifs complétés</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Objectif</th>
+                                    <th>Catégorie</th>
+                                    <th>Montant</th>
+                                    <th>Date d'achèvement</th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                {% if objectifs_completes %}
+                                    {% for objectif in objectifs_completes %}
+                                    <tr>
+                                        <td>{{ objectif.titre }}</td>
+                                        <td>{{ objectif.categorie }}</td>
+                                        <td>{{ objectif.montant }} €</td>
+                                        <td>{{ objectif.date_achievement|date:"d/m/Y" }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">Aucun objectif complété pour le moment</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card card-md">
+                    <div class="card-header">
+                        <h2 class="card-title">Progression des objectifs</h2>
+                        <div class="filter-controls">
+                            <select id="chartType" class="form-control">
+                                <option value="bar">Barres</option>
+                                <option value="doughnut">Anneau</option>
+                                <option value="pie">Camembert</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="objectifsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Animation des barres de progression (votre code existant)
+    const progressBars = document.querySelectorAll('.progress-fill');
+    progressBars.forEach(function(bar) {
+        const targetWidth = bar.style.width;
+        bar.style.width = '0%';
+        bar.style.setProperty('--target-width', targetWidth);
+        setTimeout(function() {
+            bar.style.width = targetWidth;
+        }, 100);
+    });
+
+    // Données du graphique
+    const ctx = document.getElementById('objectifsChart').getContext('2d');
+    const chartData = {
+        labels: {{ graph_labels|safe }},
+        datasets: [{
+            label: 'Progression des objectifs',
+            data: {{ graph_data|safe }},
+            backgroundColor: {{ graph_background_colors|safe }},
+            borderColor: {{ graph_colors|safe }},
+            borderWidth: 2
+        }]
+    };
+
+    // Options du graphique
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                    callback: function(value) {
+                        return value + '%';
+                    }
+                }
+            }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.parsed.y + '%';
+                    }
+                }
+            },
+            legend: {
+                position: 'bottom',
+                labels: {
+                    boxWidth: 12,
+                    padding: 20
+                }
+            }
+        }
+    };
+
+    // Création du graphique initial (barres)
+    let objectifsChart = new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: chartOptions
+    });
+
+    // Changement de type de graphique
+    document.getElementById('chartType').addEventListener('change', function() {
+        objectifsChart.destroy();
+        objectifsChart = new Chart(ctx, {
+            type: this.value,
+            data: chartData,
+            options: chartOptions
+        });
+    });
+});
+</script>
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,134 @@
+/* CSS du rapport budgétaire */
+.budget-report {
+  font-family: 'Arial', sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.budget-report h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Section résumé */
+.summary-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.summary-title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.summary-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.summary-value.positive {
+  color: #28a745;
+}
+
+.summary-value.negative {
+  color: #dc3545;
+}
+
+/* Barre de progression */
+.progress-section {
+  margin-bottom: 25px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4e73df;
+  border-radius: 5px;
+}
+
+/* Tableau budgétaire */
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.budget-table th, 
+.budget-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.budget-table th {
+  background-color: #f1f3f9;
+  color: #333;
+  font-weight: 600;
+}
+
+.budget-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.budget-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.positive {
+  color: #28a745;
+}
+
+.negative {
+  color: #dc3545;
+}
+
+/* Mini barres de progression */
+.mini-progress {
+  height: 6px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background-color: #4e73df;
+  border-radius: 3px;
+}

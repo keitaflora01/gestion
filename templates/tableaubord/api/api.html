@@ -1,0 +1,61 @@
+{% extends "../tableaubord.html" %}
+
+{% load static %}
+{% block content %}
+
+{% block titre %}
+<div class="ai-header">
+    <h1>Assistant Virtuel</h1>
+    <div class="ai-status">
+        <span class="status-indicator active"></span>
+        <span>En ligne</span>
+    </div>
+</div>
+{% endblock titre %}
+
+{% block contenu %}
+<div class="ai-chat-container card">
+    <div class="chat-messages" id="chat-messages">
+        {% for chat in chats %}
+            <div class="message {% if chat.is_user %}user-message{% else %}ai-message{% endif %}">
+                <div class="message-header">
+                    <span class="sender">{% if chat.is_user %}Vous{% else %}Assistant{% endif %}</span>
+                    <span class="message-time">{{ chat.timestamp|date:"H:i" }}</span>
+                </div>
+                <div class="message-content">
+                    {{ chat.message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <form action="{% url 'chat-api' %}" method="POST" class="chat-input-form">
+    {% csrf_token %}
+    <div class="input-group">
+    <input type="text" name="prompt" placeholder="Posez votre question financière..." class="chat-input" autocomplete="off">
+    <button type="submit" class="send-button">Envoyer</button>
+    </div>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fait défiler vers le bas initialement
+    scrollToBottom();
+    
+    // Ajoute un écouteur pour le formulaire
+    document.querySelector('.chat-input-form').addEventListener('submit', function() {
+        // Après un court délai pour permettre au nouveau message de s'afficher
+        setTimeout(scrollToBottom, 300);
+    });
+    
+    function scrollToBottom() {
+        const chatMessages = document.getElementById('chat-messages');
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+});
+</script>
+
+{% endblock contenu %}
+
+{% endblock content %}

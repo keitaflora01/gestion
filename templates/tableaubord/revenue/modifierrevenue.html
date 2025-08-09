@@ -1,0 +1,68 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Modifier une revenue</h1>
+    <div class="header-actions">
+        <a href="{% url 'revenuetableau' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+</div>
+
+<div class="form-container">
+    <div class="expense-form-card">
+        <div class="form-header">
+            <div class="form-icon">✏️</div>
+            <h2 class="form-title">Modifier la revenue</h2>
+        </div>
+        <form method="post" class="expense-form">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.categorie.id_for_label }}" class="form-label">{{ form.categorie.label }}</label>
+                    {{ form.categorie }}
+                    {% if form.categorie.errors %}
+                    <div class="error-message">{{ form.categorie.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.montant.id_for_label }}" class="form-label">{{ form.montant.label }}</label>
+                    <div class="input-with-icon">
+                        {{ form.montant }}
+                        <span class="currency-symbol">€</span>
+                    </div>
+                    {% if form.montant.errors %}
+                    <div class="error-message">{{ form.montant.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="{{ form.daterevenue.id_for_label }}" class="form-label">{{ form.daterevenue.label }}</label>
+                    {{ form.daterevenue }}
+                    {% if form.daterevenue.errors %}
+                    <div class="error-message">{{ form.revenue.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}" class="form-label">{{ form.description.label }}</label>
+                {{ form.description }}
+                {% if form.description.errors %}
+                <div class="error-message">{{ form.description.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'revenuetableau' %}'">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Détails de la revenue</h1>
+    <div class="header-actions">
+        <a href="{% url 'revenuetableau' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+</div>
+
+<div class="detail-container">
+    <div class="expense-detail-card">
+        <div class="detail-header">
+            <div class="detail-icon">💰</div>
+            <h2 class="detail-title">Revenue #{{ revenue.id }}</h2>
+        </div>
+        
+        <div class="detail-content">
+            <div class="detail-row">
+                <div class="detail-label">Catégorie:</div>
+                <div class="detail-value">{{ revenue.categorie.name }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Montant:</div>
+                <div class="detail-value">{{ revenue.montant }} €</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Date de la dépense:</div>
+                <div class="detail-value">{{ revenue.daterevenue|date:"d/m/Y" }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Date de création:</div>
+                <div class="detail-value">{{ revenue.date|date:"d/m/Y H:i" }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Dernière modification:</div>
+                <div class="detail-value">{{ revenue.datemodification|date:"d/m/Y" }}</div>
+            </div>
+            
+            <div class="detail-row">
+                <div class="detail-label">Description:</div>
+                <div class="detail-value description">{{ revenue.description|default:"Aucune description" }}</div>
+            </div>
+        </div>
+        
+        <div class="detail-actions">
+            <a href="{% url 'modifierrevenue' revenue.id %}" class="btn btn-primary">
+                <i class="fas fa-edit"></i> Modifier
+            </a>
+            <a href="{% url 'supprimerrevenue' revenue.id %}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Supprimer
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

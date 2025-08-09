@@ -1,0 +1,39 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Gestion des Catégories</h1>
+    <div class="header-actions">
+        <button class="btn btn-primary" id="addCategorieBtn">Ajouter une catégorie</button>
+    </div>
+</div>
+
+<!-- Modal pour ajouter/modifier une catégorie -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modalTitle">Ajouter une catégorie</h3>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+           
+        </div>
+        <form id="categorieForm" method="POST">
+             {% csrf_token %}
+            <div class="form-group" id="budgetGroup">
+                <label class="form-label" for="categorieBudget">Categorie</label>
+                <input type="text" id="categorieBudget" name="categorie" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="categorieDescription">Description (optionnel)</label>
+                <textarea id="categorieDescription" name="description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-actions">
+                <a href="{% url 'categorierevenue' %}" class="btn btn-secondary" id="cancelBtn">Annuler</a>
+                <button type="submit" class="btn btn-primary" id="saveCategorie">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

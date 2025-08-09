@@ -1,0 +1,179 @@
+/* Feuille de style pour la gestion des catégories */
+
+/* Layout de base */
+.categorie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styles pour le tableau des catégories */
+.categorie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.categorie-table th {
+    background-color: var(--dark);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.categorie-table tr:hover {
+    background-color: #f5f9ff;
+}
+
+.categorie-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+/* Formulaire d'ajout/modification */
+.categorie-form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Champs de recherche et filtres */
+.filter-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-dropdown {
+    min-width: 150px;
+}
+
+/* Styles pour les badges de statut */
+.status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-badge.active {
+    background-color: #e3fcef;
+    color: #0d6832;
+}
+
+.status-badge.inactive {
+    background-color: #feeaef;
+    color: #b71540;
+}
+
+/* Drag and drop pour réordonnancement */
+.draggable {
+    cursor: grab;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+.drag-handle {
+    color: #ccc;
+    margin-right: 10px;
+    cursor: grab;
+}
+
+.drop-indicator {
+    height: 2px;
+    background-color: var(--primary);
+    margin: 5px 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.drop-indicator.active {
+    opacity: 1;
+}
+
+/* Tooltip pour les infos supplémentaires */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--dark);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Animation pour les actions */
+.action-btn {
+    transition: transform 0.1s;
+}
+
+.action-btn:active {
+    transform: scale(0.9);
+}
+
+/* Styles pour le mode sombre */
+.dark-mode .categorie-table {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+.dark-mode .categorie-table th {
+    background-color: #1a202c;
+}
+
+.dark-mode .categorie-table tr:hover {
+    background-color: #2d3748;
+}
+
+.dark-mode .categorie-table td {
+    border-bottom: 1px solid #4a5568;
+}
+
+.dark-mode .budget-progress {
+    background-color: #4a5568;
+}

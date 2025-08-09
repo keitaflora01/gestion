@@ -1,0 +1,52 @@
+{% extends "../tableaubord.html" %}
+
+{% block content %}
+<div class="header">
+    <h1 class="page-title">Supprimer une dépense</h1>
+    <div class="header-actions">
+        <a href="{% url 'depensetableau' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+</div>
+
+<div class="confirm-container">
+    <div class="confirm-card">
+        <div class="confirm-icon">⚠️</div>
+        <h2 class="confirm-title">Confirmer la suppression</h2>
+        
+        <div class="confirm-content">
+            <p>Êtes-vous sûr de vouloir supprimer cette dépense ?</p>
+            
+            <div class="expense-summary">
+                <div class="summary-row">
+                    <span class="summary-label">Catégorie:</span>
+                    <span class="summary-value">{{ depense.categorie.name }}</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Montant:</span>
+                    <span class="summary-value">{{ depense.montant }} €</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Date:</span>
+                    <span class="summary-value">{{ depense.datedepense|date:"d/m/Y" }}</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Description:</span>
+                    <span class="summary-value">{{ depense.description|truncatechars:50|default:"Aucune description" }}</span>
+                </div>
+            </div>
+            
+            <p class="warning-text">Cette action est irréversible.</p>
+        </div>
+        
+        <div class="confirm-actions">
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'depensetableau' %}" class="btn btn-secondary">Annuler</a>
+                <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

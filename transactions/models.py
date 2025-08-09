@@ -9,8 +9,8 @@ class Revenue(models.Model):
     montant = models.IntegerField()
     description = models.TextField()
     daterevenue = models.DateTimeField( auto_now_add=False)
-    date = models.DateTimeField(auto_now_add=False)
-    datemodification = models.DateField(auto_now_add=False)
+    date = models.DateTimeField(auto_now_add=True)
+    datemodification = models.DateField(auto_now=True)
 
 class Depense(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -19,6 +19,10 @@ class Depense(models.Model):
     description = models.TextField()
     datedepense = models.DateTimeField( auto_now_add=False)
     date = models.DateTimeField(auto_now_add=True)
-    datemodification = models.DateField(auto_now_add=True)
-    
+    datemodification = models.DateField(auto_now=True)
+
+
+    def __str__(self):
+        return self.description
+        
         
