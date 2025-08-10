@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Environment variables
+*.env
+.env.*
+!env.example
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+
+# IDE / editor settings
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Byte-compiled / optimized / DLL files
+*$py.class
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+
