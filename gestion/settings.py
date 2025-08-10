@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["gestion.onrender.com"]
+ALLOWED_HOSTS = ["gestion.onrender.com", "*"]
 
 
 # Application definition
@@ -102,8 +102,7 @@ WSGI_APPLICATION = 'gestion.wsgi.application'
 # }
 DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL'))
-{
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
