@@ -24013,3 +24013,5 @@ WARNING 2025-08-10 17:07:25,484 log Not Found: /api/placeholder/1200/500
 WARNING 2025-08-10 17:07:25,484 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
 WARNING 2025-08-10 17:07:25,652 log Not Found: /favicon.ico
 WARNING 2025-08-10 17:07:25,653 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-10 17:31:03,903 autoreload /home/eddy/projects/kieta/gestion/gestion/settings.py changed, reloading.
+INFO 2025-08-10 17:31:04,989 autoreload Watching for file changes with StatReloader
