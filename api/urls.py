@@ -1,18 +1,3 @@
-# from django.urls import path
-# from .views import ProduitAPIView
-
-# urlpatterns = [
-    
-#     path('', ProduitAPIView.as_view(), name='produit-api'),
-# ]
-
-
-
-
-
-
-
-
 from django.urls import path
 from .views import produit_api_view
 

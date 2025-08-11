@@ -8,5 +8,4 @@ urlpatterns = [
     path('profil/',profil_utilisateur, name='profil_utilisateur'),
     path('utilisateurs/', utilisateurs, name='utilisateurs'),
     path('allfeedback/', allfeedback, name='allfeedback'),
-    # path('rechercher/<int:depense_id>/',rechercher,name='rechercher'),
 ]

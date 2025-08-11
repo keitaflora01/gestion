@@ -24015,3 +24015,54 @@ WARNING 2025-08-10 17:07:25,652 log Not Found: /favicon.ico
 WARNING 2025-08-10 17:07:25,653 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
 INFO 2025-08-10 17:31:03,903 autoreload /home/eddy/projects/kieta/gestion/gestion/settings.py changed, reloading.
 INFO 2025-08-10 17:31:04,989 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 10:29:48,039 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 10:32:12,234 autoreload /home/kt/projetsd'etude/django/projets/gestion/gestion/gestion/settings.py changed, reloading.
+INFO 2025-08-11 10:32:13,043 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 12:39:31,266 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 13:52:39,234 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 13:53:20,511 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 13:55:50,276 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 13:57:33,757 autoreload Watching for file changes with StatReloader
+INFO 2025-08-11 13:57:42,305 autoreload Watching for file changes with StatReloader
+WARNING 2025-08-11 14:03:16,498 log Not Found: /en
+WARNING 2025-08-11 14:03:16,512 basehttp "GET /en HTTP/1.1" 404 179
+WARNING 2025-08-11 14:03:16,697 log Not Found: /favicon.ico
+WARNING 2025-08-11 14:03:16,698 basehttp "GET /favicon.ico HTTP/1.1" 404 179
+INFO 2025-08-11 14:03:21,330 basehttp "GET / HTTP/1.1" 200 12318
+WARNING 2025-08-11 14:03:21,385 log Not Found: /static/css/acceuil.css
+WARNING 2025-08-11 14:03:21,386 log Not Found: /static/images/img7.PNG
+WARNING 2025-08-11 14:03:21,387 log Not Found: /static/images/img5.PNG
+WARNING 2025-08-11 14:03:21,389 log Not Found: /static/images/img1.PNG
+WARNING 2025-08-11 14:03:21,390 basehttp "GET /static/css/acceuil.css HTTP/1.1" 404 179
+WARNING 2025-08-11 14:03:21,390 basehttp "GET /static/images/img7.PNG HTTP/1.1" 404 179
+WARNING 2025-08-11 14:03:21,390 basehttp "GET /static/images/img5.PNG HTTP/1.1" 404 179
+WARNING 2025-08-11 14:03:21,390 basehttp "GET /static/images/img1.PNG HTTP/1.1" 404 179
+WARNING 2025-08-11 14:03:21,427 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-11 14:03:21,427 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 179
+INFO 2025-08-11 14:37:42,603 basehttp "GET / HTTP/1.1" 200 12318
+WARNING 2025-08-11 14:37:42,701 log Not Found: /static/css/acceuil.css
+WARNING 2025-08-11 14:37:42,703 log Not Found: /static/images/img1.PNG
+WARNING 2025-08-11 14:37:42,705 log Not Found: /static/images/img5.PNG
+WARNING 2025-08-11 14:37:42,709 basehttp "GET /static/images/img5.PNG HTTP/1.1" 404 179
+WARNING 2025-08-11 14:37:42,708 basehttp "GET /static/images/img1.PNG HTTP/1.1" 404 179
+WARNING 2025-08-11 14:37:42,708 basehttp "GET /static/css/acceuil.css HTTP/1.1" 404 179
+WARNING 2025-08-11 14:37:42,708 log Not Found: /static/images/img7.PNG
+WARNING 2025-08-11 14:37:42,711 basehttp "GET /static/images/img7.PNG HTTP/1.1" 404 179
+WARNING 2025-08-11 14:37:42,725 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-11 14:37:42,726 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 179
+INFO 2025-08-11 14:37:58,925 basehttp "GET /users/connexion HTTP/1.1" 200 1109
+WARNING 2025-08-11 14:37:58,963 log Not Found: /static/css/connexion.css
+WARNING 2025-08-11 14:37:58,964 basehttp "GET /static/css/connexion.css HTTP/1.1" 404 179
+INFO 2025-08-11 14:38:16,026 basehttp "POST /users/connexion HTTP/1.1" 302 0
+INFO 2025-08-11 14:38:16,030 basehttp "GET /users/connexion HTTP/1.1" 200 1109
+WARNING 2025-08-11 14:38:16,142 log Not Found: /static/css/connexion.css
+WARNING 2025-08-11 14:38:16,142 basehttp "GET /static/css/connexion.css HTTP/1.1" 404 179
+INFO 2025-08-11 14:38:23,881 basehttp "GET /users/inscription HTTP/1.1" 200 5463
+WARNING 2025-08-11 14:38:23,959 log Not Found: /static/css/inscription.css
+WARNING 2025-08-11 14:38:23,960 basehttp "GET /static/css/inscription.css HTTP/1.1" 404 179
+WARNING 2025-08-11 14:38:24,005 log Not Found: /static/css/inscription.css
+WARNING 2025-08-11 14:38:24,005 basehttp "GET /static/css/inscription.css HTTP/1.1" 404 179
+INFO 2025-08-11 14:38:46,570 basehttp "POST /users/connexion HTTP/1.1" 302 0
+INFO 2025-08-11 14:38:46,575 basehttp "GET /users/connexion HTTP/1.1" 200 1109
+WARNING 2025-08-11 14:38:46,655 log Not Found: /static/css/connexion.css
+WARNING 2025-08-11 14:38:46,656 basehttp "GET /static/css/connexion.css HTTP/1.1" 404 179

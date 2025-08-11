@@ -19,6 +19,8 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -26,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-hk-ub*7og6yp2x$uz0zl+wyl6*f!*+&l8)io1)=e9+n4$wx3^z')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["gestion.onrender.com", "*"]
 
@@ -40,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ai',
     'analytic',
     'category',
     'notification',
@@ -101,10 +102,23 @@ WSGI_APPLICATION = 'gestion.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
-}
-
+if DEBUG:
+    # Local PostgreSQL
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME', default='mydb'),
+            'USER': config('DB_USER', default='myuser'),
+            'PASSWORD': config('DB_PASSWORD', default='mypassword'),
+            'HOST': config('DB_HOST', default='localhost'),
+            'PORT': config('DB_PORT', default='5432'),
+        }
+    }
+else:
+    # Production database from DATABASE_URL
+    DATABASES = {
+        'default': dj_database_url.parse(config('DATABASE_URL'))
+    }
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 

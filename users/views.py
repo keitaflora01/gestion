@@ -123,16 +123,3 @@ def allfeedback(request):
         'pending_messages':pending_messages,
     
     })
-    
-# def rechercher(request, utilisateur_id):
-#     query = request.GET.get('q','')
-#     if query :
-#        userProfil = UserProfil.objects.filter(
-#            Q(name_icontains=query)|
-#            Q(email_icontains=query)|
-#            Q(date_icontains=query)
-#        )
-#     else :
-#         userProfil = UserProfil.objects.all()
-        
-#     return render(request,'administrateur/utilisateurs.html', {query})       

@@ -206,6 +206,70 @@
             </div>
         </div>
     </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // ==== MENU MOBILE ====
+    const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+    const navMenu = document.querySelector(".nav-menu");
+
+    // Ouvrir / Fermer le menu mobile
+    mobileMenuBtn.addEventListener("click", function() {
+        navMenu.classList.toggle("active");
+    });
+
+    // Fermer le menu après avoir cliqué sur un lien
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+        });
+    });
+
+    // ==== CAROUSEL ====
+    const carouselItems = document.querySelectorAll(".carousel-item");
+    const indicators = document.querySelectorAll(".indicator");
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        carouselItems.forEach((item, i) => {
+            item.classList.toggle("active", i === index);
+        });
+        indicators.forEach((ind, i) => {
+            ind.classList.toggle("active", i === index);
+        });
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        let newIndex = (currentIndex + 1) % carouselItems.length;
+        showSlide(newIndex);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000); // 5 sec
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Clic sur indicateurs
+    indicators.forEach((ind, i) => {
+        ind.addEventListener("click", () => {
+            stopAutoSlide();
+            showSlide(i);
+            startAutoSlide();
+        });
+    });
+
+    // Initialisation
+    showSlide(currentIndex);
+    startAutoSlide();
+});
+</script>
+
+
+
     
 </body>
 </html>
