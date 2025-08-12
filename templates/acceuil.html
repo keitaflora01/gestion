@@ -10,7 +10,7 @@
 <body>
     <!-- Header & Navigation -->
     <header>
-        <div class="container nav-container">
+        <div class="nav-container">
             <div class="logo">
                 <div class="logo-text">SmartFinance</div>
             </div>
@@ -214,6 +214,13 @@
             
             mobileMenuBtn.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+                    navMenu.classList.remove('active');
+                }
             });
         });
     </script>

@@ -24215,3 +24215,63 @@ WARNING 2025-08-12 14:38:24,195 basehttp "GET /api/placeholder/1200/500 HTTP/1.1
 INFO 2025-08-12 14:38:24,193 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
 WARNING 2025-08-12 14:38:24,348 log Not Found: /favicon.ico
 WARNING 2025-08-12 14:38:24,349 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-12 14:47:17,985 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:18,019 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+WARNING 2025-08-12 14:47:18,088 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:18,089 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+INFO 2025-08-12 14:47:21,300 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:21,335 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+INFO 2025-08-12 14:47:21,339 basehttp "GET /static/images/img1.PNG HTTP/1.1" 200 34640
+INFO 2025-08-12 14:47:21,343 basehttp "GET /static/images/img5.PNG HTTP/1.1" 200 424855
+INFO 2025-08-12 14:47:21,361 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
+WARNING 2025-08-12 14:47:21,413 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:21,417 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+WARNING 2025-08-12 14:47:21,602 log Not Found: /favicon.ico
+WARNING 2025-08-12 14:47:21,602 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-12 14:47:54,153 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:54,184 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+INFO 2025-08-12 14:47:54,187 basehttp "GET /static/images/img1.PNG HTTP/1.1" 200 34640
+INFO 2025-08-12 14:47:54,191 basehttp "GET /static/images/img5.PNG HTTP/1.1" 200 424855
+INFO 2025-08-12 14:47:54,226 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
+WARNING 2025-08-12 14:47:54,255 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:54,255 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+WARNING 2025-08-12 14:47:54,399 log Not Found: /favicon.ico
+WARNING 2025-08-12 14:47:54,400 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-12 14:47:56,230 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:56,276 basehttp "GET /static/images/img1.PNG HTTP/1.1" 200 34640
+INFO 2025-08-12 14:47:56,276 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+INFO 2025-08-12 14:47:56,279 basehttp "GET /static/images/img5.PNG HTTP/1.1" 200 424855
+INFO 2025-08-12 14:47:56,294 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
+WARNING 2025-08-12 14:47:56,347 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:56,349 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+WARNING 2025-08-12 14:47:56,499 log Not Found: /favicon.ico
+WARNING 2025-08-12 14:47:56,500 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-12 14:47:57,037 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:57,109 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+INFO 2025-08-12 14:47:57,118 basehttp "GET /static/images/img1.PNG HTTP/1.1" 200 34640
+INFO 2025-08-12 14:47:57,128 basehttp "GET /static/images/img5.PNG HTTP/1.1" 200 424855
+INFO 2025-08-12 14:47:57,157 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
+WARNING 2025-08-12 14:47:57,180 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:57,183 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+WARNING 2025-08-12 14:47:57,333 log Not Found: /favicon.ico
+WARNING 2025-08-12 14:47:57,334 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-12 14:47:57,420 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:57,461 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+INFO 2025-08-12 14:47:57,497 basehttp "GET /static/images/img1.PNG HTTP/1.1" 200 34640
+INFO 2025-08-12 14:47:57,514 basehttp "GET /static/images/img5.PNG HTTP/1.1" 200 424855
+INFO 2025-08-12 14:47:57,519 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
+WARNING 2025-08-12 14:47:57,550 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:57,551 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+INFO 2025-08-12 14:47:57,631 basehttp "GET / HTTP/1.1" 200 11295
+INFO 2025-08-12 14:47:57,711 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 14615
+INFO 2025-08-12 14:47:57,732 basehttp "GET /static/images/img1.PNG HTTP/1.1" 200 34640
+INFO 2025-08-12 14:47:57,737 basehttp "GET /static/images/img5.PNG HTTP/1.1" 200 424855
+INFO 2025-08-12 14:47:57,753 basehttp "GET /static/images/img7.PNG HTTP/1.1" 200 450869
+WARNING 2025-08-12 14:47:57,796 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:47:57,798 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
+WARNING 2025-08-12 14:47:57,953 log Not Found: /favicon.ico
+WARNING 2025-08-12 14:47:57,955 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
+INFO 2025-08-12 14:53:24,765 basehttp "GET / HTTP/1.1" 200 11285
+INFO 2025-08-12 14:53:24,857 basehttp "GET /static/css/acceuil.css HTTP/1.1" 200 15188
+WARNING 2025-08-12 14:53:24,916 log Not Found: /api/placeholder/1200/500
+WARNING 2025-08-12 14:53:24,917 basehttp "GET /api/placeholder/1200/500 HTTP/1.1" 404 5056
