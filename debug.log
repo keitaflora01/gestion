@@ -24015,3 +24015,146 @@ WARNING 2025-08-10 17:07:25,652 log Not Found: /favicon.ico
 WARNING 2025-08-10 17:07:25,653 basehttp "GET /favicon.ico HTTP/1.1" 404 4642
 INFO 2025-08-10 17:31:03,903 autoreload /home/eddy/projects/kieta/gestion/gestion/settings.py changed, reloading.
 INFO 2025-08-10 17:31:04,989 autoreload Watching for file changes with StatReloader
+WARNING 2025-08-10 17:39:54,200 log Not Found: /users/login/
+WARNING 2025-08-10 17:39:54,203 basehttp "GET /users/login/ HTTP/1.1" 404 6120
+WARNING 2025-08-10 17:39:59,286 log Not Found: /user/connexion
+WARNING 2025-08-10 17:39:59,288 basehttp "GET /user/connexion HTTP/1.1" 404 4651
+INFO 2025-08-10 17:40:11,371 basehttp "GET /users/connexion HTTP/1.1" 200 1109
+INFO 2025-08-10 17:40:11,516 basehttp "GET /static/css/connexion.css HTTP/1.1" 200 2177
+INFO 2025-08-10 17:40:11,859 basehttp "GET /static/images/img2.PNG HTTP/1.1" 200 374416
+INFO 2025-08-10 17:40:35,731 basehttp "GET /users/inscription HTTP/1.1" 200 5465
+INFO 2025-08-10 17:40:35,876 basehttp "GET /static/css/inscription.css HTTP/1.1" 200 5134
+INFO 2025-08-10 17:40:35,991 basehttp "GET /static/images/img7.PNG HTTP/1.1" 304 0
+INFO 2025-08-10 17:40:46,997 basehttp "GET /users/profil HTTP/1.1" 301 0
+ERROR 2025-08-10 17:40:47,161 log Internal Server Error: /users/profil/
+Traceback (most recent call last):
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/sessions/backends/base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/psycopg/connection.py", line 96, in connect
+    attempts = conninfo_attempts(params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/psycopg/_conninfo_attempts.py", line 53, in conninfo_attempts
+    raise e.OperationalError(str(last_exc))
+psycopg.OperationalError: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 79, in <lambda>
+    lambda u: u.is_authenticated,
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/functional.py", line 251, in inner
+    self._setup()
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/auth/middleware.py", line 40, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/auth/middleware.py", line 20, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/auth/__init__.py", line 304, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/auth/__init__.py", line 95, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/sessions/backends/base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/sessions/backends/db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 279, in ensure_connection
+    self.connect()
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/base/base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/django/db/backends/postgresql/base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/psycopg/connection.py", line 96, in connect
+    attempts = conninfo_attempts(params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/eddy/projects/kieta/gestion/venv/lib/python3.12/site-packages/psycopg/_conninfo_attempts.py", line 53, in conninfo_attempts
+    raise e.OperationalError(str(last_exc))
+django.db.utils.OperationalError: [Errno -3] Temporary failure in name resolution
+ERROR 2025-08-10 17:40:47,176 basehttp "GET /users/profil/ HTTP/1.1" 500 245350
+INFO 2025-08-11 07:28:22,154 basehttp "GET /users/connexion HTTP/1.1" 200 1109
+INFO 2025-08-11 07:28:22,208 basehttp "GET /static/css/connexion.css HTTP/1.1" 304 0
+INFO 2025-08-11 07:28:22,354 basehttp "GET /static/images/img2.PNG HTTP/1.1" 304 0
+INFO 2025-08-12 13:38:20,655 autoreload Watching for file changes with StatReloader
