@@ -15,13 +15,13 @@
                 <div class="logo-text">SmartFinance</div>
             </div>
             
-            <button class="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#acceuil">Accueil</a></li>
                 <li><a href="#fonctionnalites">Fonctionnalités</a></li>
                 <li><a href="#temoignages">Témoignages</a></li>
-                <li><a href="{% url 'connexion'%}" class="btn">Se connecter</a></li>
+                <li><a href="{% url 'connexion'%}" class="">Se connecter</a></li>
             </ul>
         </div>
     </header>
@@ -206,6 +206,17 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
     
 </body>
 </html>
